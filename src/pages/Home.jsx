@@ -178,7 +178,7 @@ const StatsSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-2xl p-8 shadow-lg border border-blue-100 hover:shadow-xl hover:border-blue-200 transition-all duration-300"
+              className="bg-white rounded-2xl p-8 shadow-lg border border-blue-100 hover:border-blue-200 transition-all duration-300"
             >
               <div className="flex items-center justify-center h-16 w-16 rounded-xl bg-blue-50 mb-6 mx-auto">
                 {stat.icon}
