@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+body {
+    background-color: white;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: black;
+    
+}
+
+
+.nav-item {
+    @apply text-slate-600 text-[17px] font-medium block hover:text-ncdb-blue01 duration-500;
+}
+
+.service-list-item {
+    @apply text-slate-600 font-medium hover:text-ncdb-blue01 pb-1
+}
+
+.login-button {
+    @apply h-9 w-18 m-0 p-2 bg-ncdb-blue03 text-white items-center text-center rounded-lg transition transform active:scale-95 shadow-xl text-[15px] duration-200;
+}
+
+.nav-item-mobile {
+    @apply text-slate-600 hover:text-ncdb-blue01 text-start text-[17px] font-medium block w-full;
+}
+
+.footer-input {
+    @apply w-full p-1 text-sm rounded bg-white text-black placeholder-gray-400 border border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+@theme {
+    
+    --color-ncdb-blue01: #2b8afc;
+    --color-ncdb-blue03: #0070c0;
+    --color-ncdb-blue02: #2775d3;
+    --color-ncdb-blue04: #023068;
+    --color-ncdb-nlue05: #03152b;
+    --color-ncdb-red01: #ff0000;
+    --color-ncdb-red02: #cc0930;
+
+}
+
+/* styles/animations.css */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
