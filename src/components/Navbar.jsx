@@ -21,7 +21,7 @@ const Navbar = () => {
               </div>
               <div className="hidden sm:block">
                 <h1 className='text-xl sm:text-2xl font-bold text-blue-900 tracking-tight'>NCDB</h1>
-                <p className="text-xs text-blue-600 -mt-1 font-medium">Cooperative Development Bank</p>
+                <p className="text-xs text-blue-600 -mt-1 font-medium">Nothern Cooperative Development Bank</p>
               </div>
             </Link>
           </div>
@@ -80,7 +80,6 @@ const Navbar = () => {
                       <MobileNavItem href="/developmentBanking" label="Development Banking" onClick={() => setIsMenuOpen(false)} />
                       <MobileNavItem href="/research" label="Research & Development" onClick={() => setIsMenuOpen(false)} />
                       <MobileNavItem href="/finance" label="Financial Services" onClick={() => setIsMenuOpen(false)} />
-                      <MobileNavItem href="/hr" label="Human Resources" onClick={() => setIsMenuOpen(false)} />
                       <MobileNavItem href="/marketing" label="Marketing Support" onClick={() => setIsMenuOpen(false)} />
                       <MobileNavItem href="/technology" label="Technical Support" onClick={() => setIsMenuOpen(false)} />
                     </motion.div>
@@ -117,7 +116,6 @@ const ServiceItems = () => {
     { name: "Development Banking", path: "/developmentBanking" },
     { name: "Research & Development", path: "/research" },
     { name: "Financial Services", path: "/finance" },
-    { name: "Human Resources", path: "/hr" },
     { name: "Marketing Support", path: "/marketing" },
     { name: "Technical Support", path: "/technology" }
   ]

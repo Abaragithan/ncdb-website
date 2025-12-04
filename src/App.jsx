@@ -34,7 +34,6 @@ const App = () => {
           <Route element={<DevelopmentBanking />} path="/developmentBanking"></Route>
           <Route element={<Research />} path="/research"></Route>
           <Route element={<Finance />} path="/finance"></Route>
-          <Route element={<Hr />} path="/hr"></Route>
           <Route element={<Marketing />} path="/marketing"></Route>
           <Route element={<Technology />} path="/technology"></Route>
         </Routes>

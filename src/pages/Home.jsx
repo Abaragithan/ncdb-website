@@ -38,7 +38,7 @@ const HomeCarousel = () => {
       image: "/images/slide1.jpg",
       title: "Empowering Cooperative Societies",
       description: "Providing comprehensive banking solutions and support to 1200+ member societies for sustainable community development.",
-      cta: "Explore Membership",
+      cta: "Explore",
       path: "/about",
       gradient: "from-blue-900/80 to-blue-800/60"
     },
@@ -142,7 +142,7 @@ const StatsSection = () => {
       description: "Actively supported"
     },
     {
-      value: "₹500+ Cr",
+      value: "LKR500+ Cr",
       label: "Assets Managed",
       icon: <BanknotesIcon className="h-8 w-8 text-blue-600" />,
       description: "Financial strength"
@@ -214,14 +214,6 @@ const ServicesOverview = () => {
       features: ["Loans", "Grants", "Credit Programs"]
     },
     {
-      icon: "💰",
-      title: "Financial Services",
-      description: "Comprehensive financial management, treasury services, and investment solutions.",
-      path: "/finance",
-      color: "indigo",
-      features: ["Treasury", "Investments", "Reporting"]
-    },
-    {
       icon: "🔬",
       title: "Research & Development",
       description: "Market research, innovation programs, and technical support for cooperative growth.",
@@ -230,13 +222,21 @@ const ServicesOverview = () => {
       features: ["Research", "Innovation", "Support"]
     },
     {
-      icon: "🤝",
-      title: "HR Solutions",
-      description: "Capacity building, training programs, and human resource development services.",
-      path: "/hr",
-      color: "teal",
-      features: ["Training", "Development", "Support"]
-    }
+      icon: "💰",
+      title: "Markrting",
+      description: "Comprehensive financial management, treasury services, and investment solutions.",
+      path: "/marketing",
+      color: "indigo",
+      features: ["Treasury", "Investments", "Reporting"]
+    },
+    {
+      icon: "💰",
+      title: "Technical",
+      description: "Comprehensive financial management, treasury services, and investment solutions.",
+      path: "/technology",
+      color: "indigo",
+      features: ["Treasury", "Investments", "Reporting"]
+    },
   ];
 
   return (
