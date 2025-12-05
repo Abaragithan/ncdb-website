@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
@@ -15,8 +15,18 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
+import HeroSection from '../components/common/HeroSection';
+import MetricCards from '../components/common/MetricCards';
+import InfoCards from '../components/common/InfoCards';
+import { fetchPostsByCategory } from '../api/wordpressAPI';
 
 const Home = () => {
+  useEffect(() => {
+    fetchPostsByCategory(1).then((data) => {
+      console.log('data', data);
+    });
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       <HomeCarousel />
@@ -25,10 +35,10 @@ const Home = () => {
       <CooperativeBenefits />
       <CTASection />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
 
 // HomeCarousel Component
 const HomeCarousel = () => {
@@ -130,162 +140,109 @@ const HomeCarousel = () => {
       </Swiper>
     </div>
   );
-}
+};
 
 // Stats Section Component
 const StatsSection = () => {
-  const stats = [
+  const metrics = [
     {
-      value: "1200+",
+      id: 1,
+      metric: "1200+",
       label: "Member Societies",
-      icon: <BuildingOfficeIcon className="h-8 w-8 text-blue-600" />,
+      icon: "🏢",
       description: "Actively supported"
     },
     {
-      value: "LKR500+ Cr",
+      id: 2,
+      metric: "LKR500+ Cr",
       label: "Assets Managed",
-      icon: <BanknotesIcon className="h-8 w-8 text-blue-600" />,
+      icon: "💰",
       description: "Financial strength"
     },
     {
-      value: "50+",
+      id: 3,
+      metric: "50+",
       label: "Branches",
-      icon: <UserGroupIcon className="h-8 w-8 text-blue-600" />,
+      icon: "🏪",
       description: "Nationwide presence"
     },
     {
-      value: "25+",
+      id: 4,
+      metric: "25+",
       label: "Years of Service",
-      icon: <ChartBarIcon className="h-8 w-8 text-blue-600" />,
+      icon: "📅",
       description: "Trusted experience"
     }
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-blue-50">
+    <section className="py-12 md:py-20 bg-gradient-to-b from-white to-blue-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-blue-900 mb-4">Our Cooperative Impact</h2>
-          <p className="text-blue-600 text-lg max-w-2xl mx-auto">
+        <div className="text-center mb-8 md:mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">Our Cooperative Impact</h2>
+          <p className="text-blue-600 text-base md:text-lg max-w-2xl mx-auto">
             Driving sustainable development through trusted banking partnerships
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {stats.map((stat, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-2xl p-8 shadow-lg border border-blue-100 hover:border-blue-200 transition-all duration-300"
-            >
-              <div className="flex items-center justify-center h-16 w-16 rounded-xl bg-blue-50 mb-6 mx-auto">
-                {stat.icon}
-              </div>
-              <div className="text-center">
-                <div className="text-5xl font-bold text-blue-900 mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-xl font-semibold text-blue-800 mb-2">
-                  {stat.label}
-                </div>
-                <div className="text-blue-600 text-sm">
-                  {stat.description}
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        <MetricCards metrics={metrics} columns={4} />
       </div>
     </section>
   );
-}
+};
 
 // Services Overview Component
 const ServicesOverview = () => {
   const services = [
     {
-      icon: "🏦",
       title: "Development Banking",
       description: "Specialized financial solutions for cooperative societies including loans, grants, and credit facilities.",
-      path: "/developmentBanking",
-      color: "blue",
-      features: ["Loans", "Grants", "Credit Programs"]
+      icon: "🏦",
+      features: ["Loans", "Grants", "Credit Programs"],
+      linkText: "Explore Service",
+      linkTo: "/developmentBanking"
     },
     {
-      icon: "🔬",
       title: "Research & Development",
       description: "Market research, innovation programs, and technical support for cooperative growth.",
-      path: "/research",
-      color: "cyan",
-      features: ["Research", "Innovation", "Support"]
+      icon: "🔬",
+      features: ["Research", "Innovation", "Support"],
+      linkText: "Explore Service",
+      linkTo: "/research"
     },
     {
-      icon: "💰",
-      title: "Markrting",
-      description: "Comprehensive financial management, treasury services, and investment solutions.",
-      path: "/marketing",
-      color: "indigo",
-      features: ["Treasury", "Investments", "Reporting"]
+      title: "Marketing",
+      description: "Comprehensive marketing solutions to expand cooperative products' market reach.",
+      icon: "📈",
+      features: ["Sales", "Distribution", "Promotion"],
+      linkText: "Explore Service",
+      linkTo: "/marketing"
     },
     {
-      icon: "💰",
-      title: "Technical",
-      description: "Comprehensive financial management, treasury services, and investment solutions.",
-      path: "/technology",
-      color: "indigo",
-      features: ["Treasury", "Investments", "Reporting"]
+      title: "Technical Support",
+      description: "Technical expertise and innovation support for cooperative machinery and equipment.",
+      icon: "🔧",
+      features: ["Technology", "Support", "Training"],
+      linkText: "Explore Service",
+      linkTo: "/technology"
     },
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-12 md:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-blue-900 mb-4">Comprehensive Services</h2>
-          <p className="text-blue-600 text-lg max-w-2xl mx-auto">
+        <div className="text-center mb-8 md:mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">Comprehensive Services</h2>
+          <p className="text-blue-600 text-base md:text-lg max-w-2xl mx-auto">
             Tailored solutions designed specifically for cooperative societies and their members
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group bg-gradient-to-b from-white to-blue-50 rounded-2xl p-8 shadow-lg border border-blue-100 hover:shadow-xl hover:border-blue-300 transition-all duration-300 hover:-translate-y-1"
-            >
-              <div className={`h-16 w-16 rounded-xl bg-gradient-to-br from-${service.color}-500 to-${service.color}-700 flex items-center justify-center text-2xl text-white mb-6 shadow-lg group-hover:shadow-${service.color}-200 transition-shadow`}>
-                {service.icon}
-              </div>
-              <h3 className="text-xl font-bold text-blue-900 mb-3">{service.title}</h3>
-              <p className="text-blue-600 mb-6">{service.description}</p>
-
-              <div className="flex flex-wrap gap-2 mb-6">
-                {service.features.map((feature, idx) => (
-                  <span key={idx} className={`px-3 py-1 bg-${service.color}-100 text-${service.color}-800 text-xs font-medium rounded-full`}>
-                    {feature}
-                  </span>
-                ))}
-              </div>
-
-              <Link
-                to={service.path}
-                className={`inline-flex items-center text-${service.color}-700 hover:text-${service.color}-900 font-semibold group`}
-              >
-                Explore Service
-                <ArrowRightIcon className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </motion.div>
-          ))}
-        </div>
+        <InfoCards cards={services} columns={4} />
       </div>
     </section>
   );
-}
+};
 
 // Cooperative Benefits Section
 const CooperativeBenefits = () => {
@@ -313,37 +270,25 @@ const CooperativeBenefits = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-900 to-indigo-900">
+    <section className="py-12 md:py-20 bg-gradient-to-br from-blue-900 to-indigo-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-white mb-4">Benefits of Cooperation</h2>
-          <p className="text-blue-200 text-lg max-w-2xl mx-auto">
+        <div className="text-center mb-8 md:mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Benefits of Cooperation</h2>
+          <p className="text-blue-200 text-base md:text-lg max-w-2xl mx-auto">
             Join the cooperative movement and experience the power of collective banking
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {benefits.map((benefit, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:border-white/40 transition-all duration-300 hover:bg-white/15"
-            >
-              <div className="flex items-center justify-center h-16 w-16 rounded-xl bg-white/10 mb-6">
-                {benefit.icon}
-              </div>
-              <h3 className="text-xl font-bold text-white mb-4">{benefit.title}</h3>
-              <p className="text-blue-200 leading-relaxed">{benefit.description}</p>
-            </motion.div>
-          ))}
-        </div>
+        <InfoCards
+          cards={benefits}
+          columns={4}
+          cardClassName="bg-white/10 backdrop-blur-sm border-white/20 hover:border-white/40 hover:bg-white/15 text-white"
+        />
 
-        <div className="mt-16 text-center">
+        <div className="mt-12 md:mt-16 text-center">
           <Link
             to="/about"
-            className="inline-flex items-center bg-white text-blue-900 hover:bg-blue-50 font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-[1.02]"
+            className="inline-flex items-center bg-white text-blue-900 hover:bg-blue-50 font-bold py-3 px-6 md:py-4 md:px-8 rounded-lg text-base md:text-lg transition-all duration-300 transform hover:scale-[1.02]"
           >
             Learn About Membership
             <ArrowRightIcon className="h-5 w-5 ml-2" />
@@ -352,41 +297,41 @@ const CooperativeBenefits = () => {
       </div>
     </section>
   );
-}
+};
 
 // CTA Section Component
 const CTASection = () => {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-12 md:py-20 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-3xl p-12 shadow-xl">
-          <h2 className="text-4xl md:text-5xl font-bold text-blue-900 mb-6">
+        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-12 shadow-xl">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-blue-900 mb-4 md:mb-6">
             Ready to Join the Cooperative Movement?
           </h2>
-          <p className="text-xl text-blue-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg lg:text-xl text-blue-600 mb-6 md:mb-10 max-w-2xl mx-auto leading-relaxed">
             Become a member society or partner with NCDB to drive sustainable development and economic growth in your community.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/contribute"
-              className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl"
+              className="bg-gradient-to-r from-blue-600 to-blue-600 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-3 px-6 md:py-4 md:px-8 rounded-lg text-base md:text-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl"
             >
               Contribute Now
             </Link>
             <Link
               to="/collaborators"
-              className="bg-white text-blue-600 hover:bg-blue-50 border-2 border-blue-200 font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 shadow-md hover:shadow-lg"
+              className="bg-white text-blue-600 hover:bg-blue-50 border-2 border-blue-200 font-bold py-3 px-6 md:py-4 md:px-8 rounded-lg text-base md:text-lg transition-all duration-300 shadow-md hover:shadow-lg"
             >
               Become a Collaborator
             </Link>
           </div>
-          <p className="text-blue-500 text-sm mt-6">
+          <p className="text-blue-500 text-sm md:text-base mt-6">
             Contact our membership team at membership@ncdb.coop
           </p>
         </div>
       </div>
     </section>
   );
-}
+};
 
 export { HomeCarousel };
