@@ -9,7 +9,6 @@ import Career from "./pages/Career";
 import DevelopmentBanking from "./pages/services/DevelopmentBanking";
 import Research from "./pages/services/Research";
 import Finance from "./pages/services/Finance";
-import Hr from "./pages/services/Hr";
 import Technology from "./pages/services/Technology";
 import Marketing from "./pages/services/Marketing";
 

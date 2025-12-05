@@ -42,6 +42,20 @@ const Navbar = () => {
             <NavItemDesk name="Collaborators" href="/collaborators" />
             <NavItemDesk name="Careers" href="/careers" />
           </ul>
+
+          {/* Mobile: menu button */}
+          <div className="md:hidden flex items-center space-x-2">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="inline-flex items-center justify-center p-2 rounded-md text-blue-700 hover:text-blue-900 hover:bg-blue-50 focus:outline-none transition-colors"
+            >
+              {isMenuOpen ? (
+                <XMarkIcon className="block h-6 w-6 sm:h-7 sm:w-7" />
+              ) : (
+                <Bars3Icon className="block h-6 w-6 sm:h-7 sm:w-7" />
+              )}
+            </button>
+          </div>
         </div>
       </div>
 
