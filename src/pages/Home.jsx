@@ -1,7 +1,4 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
 import { motion } from 'framer-motion';
 import {
   BuildingOfficeIcon,
@@ -9,29 +6,113 @@ import {
   UserGroupIcon,
   ChartBarIcon,
   ArrowRightIcon,
-  CheckCircleIcon
+  CheckCircleIcon,
+  NewspaperIcon
 } from '@heroicons/react/24/outline';
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/effect-fade";
-import HeroSection from '../components/common/HeroSection';
 import MetricCards from '../components/common/MetricCards';
 import InfoCards from '../components/common/InfoCards';
-import { fetchPostsByCategory } from '../api/wordpressAPI';
 
 const Home = () => {
-  useEffect(() => {
-    fetchPostsByCategory(1).then((data) => {
-      console.log('data', data);
-    });
-  }, []);
+  // Hard-coded news data
+  const newsPosts = [
+    {
+      id: 1,
+      title: "New Branch Opening in Colombo",
+      excerpt: "NCDB announces the opening of its 51st branch in Colombo, expanding our reach to serve more cooperative societies.",
+      date: "2024-01-15T10:30:00",
+      slug: "new-branch-opening-colombo"
+    },
+    {
+      id: 2,
+      title: "Annual Cooperative Summit 2024",
+      excerpt: "Join us for the largest gathering of cooperative societies in Sri Lanka. Registrations now open for all member societies.",
+      date: "2024-01-10T14:45:00",
+      slug: "annual-cooperative-summit-2024"
+    },
+    {
+      id: 3,
+      title: "Digital Banking Platform Launch",
+      excerpt: "Introducing our new digital banking platform for cooperative societies. Streamlined operations and better financial management.",
+      date: "2024-01-05T09:15:00",
+      slug: "digital-banking-platform-launch"
+    },
+    {
+      id: 4,
+      title: "Sustainable Agriculture Initiative",
+      excerpt: "New funding program launched for sustainable agriculture cooperatives. Special interest rates and technical support available.",
+      date: "2023-12-28T11:20:00",
+      slug: "sustainable-agriculture-initiative"
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      <HomeCarousel />
+      {/* Hero Section */}
+      <HeroSectionComponent />
+
       <StatsSection />
       <ServicesOverview />
+
+      {/* News & Updates Section */}
+      <section className="py-12 md:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 md:mb-16">
+            <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full mb-4">
+              <NewspaperIcon className="h-5 w-5" />
+              <span className="text-sm font-medium">Latest Updates</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">News & Updates</h2>
+            <p className="text-blue-600 text-base md:text-lg max-w-2xl mx-auto">
+              Latest announcements and news from NCDB
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {newsPosts.map((post) => (
+              <div key={post.id} className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow duration-300">
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-xs font-medium text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
+                      {new Date(post.date).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric'
+                      })}
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    {post.title}
+                  </h3>
+
+                  <p className="text-gray-600 mb-4">
+                    {post.excerpt}
+                  </p>
+
+                  <Link
+                    to={`/news/${post.slug}`}
+                    className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium"
+                  >
+                    Read More
+                    <ArrowRightIcon className="h-4 w-4 ml-2" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link
+              to="/news"
+              className="inline-flex items-center bg-blue-600 text-white hover:bg-blue-700 font-bold py-3 px-6 rounded-lg text-base transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl"
+            >
+              View All Updates
+              <ArrowRightIcon className="h-5 w-5 ml-2" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <CooperativeBenefits />
       <CTASection />
     </div>
@@ -40,104 +121,63 @@ const Home = () => {
 
 export default Home;
 
-// HomeCarousel Component
-const HomeCarousel = () => {
-  const slides = [
-    {
-      id: 1,
-      image: "/images/slide1.jpg",
-      title: "Empowering Cooperative Societies",
-      description: "Providing comprehensive banking solutions and support to 1200+ member societies for sustainable community development.",
-      cta: "Explore",
-      path: "/about",
-      gradient: "from-blue-900/80 to-blue-800/60"
-    },
-    {
-      id: 2,
-      image: "/images/slide2.jpg",
-      title: "Financial Solutions for Development",
-      description: "Specialized development banking services designed to uplift communities and drive economic growth.",
-      cta: "View Services",
-      path: "/developmentBanking",
-      gradient: "from-blue-800/80 to-indigo-900/60"
-    },
-    {
-      id: 3,
-      image: "/images/slide3.jpeg",
-      title: "Innovation in Cooperative Banking",
-      description: "Leveraging technology and expertise to deliver cutting-edge solutions for cooperative societies.",
-      cta: "Discover Innovation",
-      path: "/technology",
-      gradient: "from-indigo-900/80 to-blue-900/60"
-    },
-  ];
-
+// Hero Section Component
+const HeroSectionComponent = () => {
   return (
-    <div className="relative">
-      <Swiper
-        modules={[Navigation, Pagination, Autoplay, EffectFade]}
-        effect="fade"
-        spaceBetween={0}
-        slidesPerView={1}
-        navigation
-        pagination={{
-          clickable: true,
-          bulletClass: 'swiper-pagination-bullet bg-white/50',
-          bulletActiveClass: 'swiper-pagination-bullet-active bg-blue-600'
-        }}
-        autoplay={{ delay: 6000, disableOnInteraction: false }}
-        loop={true}
-        className="w-full h-[75vh] md:h-[90vh]"
-      >
-        {slides.map((slide) => (
-          <SwiperSlide key={slide.id} className="relative">
-            <div className={`absolute inset-0 bg-gradient-to-r ${slide.gradient} z-10`}></div>
-            <img
-              src={slide.image}
-              alt={slide.title}
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 z-20 flex items-center">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                <div className="max-w-2xl">
-                  <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="space-y-6"
-                  >
-                    <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
-                      <BuildingOfficeIcon className="h-5 w-5 text-white" />
-                      <span className="text-white text-sm font-medium">Cooperative Development Bank</span>
-                    </div>
-                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 leading-tight">
-                      {slide.title}
-                    </h1>
-                    <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-xl leading-relaxed">
-                      {slide.description}
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4">
-                      <Link
-                        to={slide.path}
-                        className="inline-flex items-center justify-center bg-white text-blue-700 hover:bg-blue-50 font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl"
-                      >
-                        {slide.cta}
-                        <ArrowRightIcon className="h-5 w-5 ml-2" />
-                      </Link>
-                      <Link
-                        to="/contact"
-                        className="inline-flex items-center justify-center border-2 border-white text-white hover:bg-white/10 font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300"
-                      >
-                        Contact Us
-                      </Link>
-                    </div>
-                  </motion.div>
-                </div>
+    <div className="relative overflow-hidden">
+      {/* Background image with gradient overlay */}
+      <div className="absolute inset-0">
+        <img
+          src="/images/slide1.jpg"
+          alt="Empowering Cooperative Societies"
+          className="w-full h-full object-cover"
+          loading="eager"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-blue-800/60"></div>
+      </div>
+
+      {/* Content */}
+      <div className="relative min-h-[75vh] md:min-h-[90vh] flex items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="max-w-2xl">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="space-y-6"
+            >
+              <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
+                <BuildingOfficeIcon className="h-5 w-5 text-white" />
+                <span className="text-white text-sm font-medium">Cooperative Development Bank</span>
               </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 leading-tight">
+                Empowering Cooperative Societies
+              </h1>
+
+              <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-xl leading-relaxed">
+                Providing comprehensive banking solutions and support to 1200+ member societies for sustainable community development.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  to="/about"
+                  className="inline-flex items-center justify-center bg-white text-blue-700 hover:bg-blue-50 font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl"
+                >
+                  Explore
+                  <ArrowRightIcon className="h-5 w-5 ml-2" />
+                </Link>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center border-2 border-white text-white hover:bg-white/10 font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300"
+                >
+                  Contact Us
+                </Link>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
@@ -333,5 +373,3 @@ const CTASection = () => {
     </section>
   );
 };
-
-export { HomeCarousel };
