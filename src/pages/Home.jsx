@@ -9,7 +9,7 @@ import {
 } from '@heroicons/react/24/outline';
 import MetricCards from '../components/common/MetricCards';
 import InfoCards from '../components/common/InfoCards';
-import HeroSectionComponent from '../components/HerosectionComponent';
+import HeroSectionComponent from '../components/HeroSectionComponent';
 
 const Home = () => {
   // Hard-coded news data
