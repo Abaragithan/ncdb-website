@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import {
-  BuildingOfficeIcon,
   BanknotesIcon,
   UserGroupIcon,
   ChartBarIcon,
@@ -11,6 +9,7 @@ import {
 } from '@heroicons/react/24/outline';
 import MetricCards from '../components/common/MetricCards';
 import InfoCards from '../components/common/InfoCards';
+import HeroSectionComponent from '../components/HerosectionComponent';
 
 const Home = () => {
   // Hard-coded news data
@@ -103,7 +102,7 @@ const Home = () => {
 
           <div className="text-center mt-12">
             <Link
-              to="/news"
+              to="/mediaroom"
               className="inline-flex items-center bg-blue-600 text-white hover:bg-blue-700 font-bold py-3 px-6 rounded-lg text-base transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl"
             >
               View All Updates
@@ -120,67 +119,6 @@ const Home = () => {
 };
 
 export default Home;
-
-// Hero Section Component
-const HeroSectionComponent = () => {
-  return (
-    <div className="relative overflow-hidden">
-      {/* Background image with gradient overlay */}
-      <div className="absolute inset-0">
-        <img
-          src="/images/slide1.jpg"
-          alt="Empowering Cooperative Societies"
-          className="w-full h-full object-cover"
-          loading="eager"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-blue-800/60"></div>
-      </div>
-
-      {/* Content */}
-      <div className="relative min-h-[75vh] md:min-h-[90vh] flex items-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="max-w-2xl">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="space-y-6"
-            >
-              <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
-                <BuildingOfficeIcon className="h-5 w-5 text-white" />
-                <span className="text-white text-sm font-medium">Cooperative Development Bank</span>
-              </div>
-
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 leading-tight">
-                Empowering Cooperative Societies
-              </h1>
-
-              <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-xl leading-relaxed">
-                Providing comprehensive banking solutions and support to 1200+ member societies for sustainable community development.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  to="/about"
-                  className="inline-flex items-center justify-center bg-white text-blue-700 hover:bg-blue-50 font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl"
-                >
-                  Explore
-                  <ArrowRightIcon className="h-5 w-5 ml-2" />
-                </Link>
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center justify-center border-2 border-white text-white hover:bg-white/10 font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300"
-                >
-                  Contact Us
-                </Link>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 // Stats Section Component
 const StatsSection = () => {
