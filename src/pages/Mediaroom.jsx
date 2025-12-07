@@ -72,28 +72,28 @@ const Mediaroom = () => {
       title: "NCDB 2024 Annual Report",
       description: "Comprehensive annual report detailing our financial performance and achievements.",
       icon: "📊",
-      linkText: "Download PDF (4.2 MB)",
+      linkText: "Download PDF",
       downloadLink: "/documents/NCDB_Annual_Report_2024.pdf"
     },
     {
       title: "NCDB Corporate Brochure",
       description: "Overview of our services, mission, and impact.",
       icon: "📋",
-      linkText: "Download PDF (2.1 MB)",
+      linkText: "Download PDF",
       downloadLink: "/documents/NCDB_Brochure_2024.pdf"
     },
     {
       title: "NCDB Logo Pack",
       description: "Official logos and brand assets for media use.",
       icon: "🎨",
-      linkText: "Download ZIP (15.7 MB)",
+      linkText: "Download ZIP",
       downloadLink: "/assets/NCDB_Logos.zip"
     },
     {
       title: "Brand Guidelines",
       description: "Complete brand guidelines and usage instructions.",
       icon: "📐",
-      linkText: "Download PDF (8.3 MB)",
+      linkText: "Download PDF",
       downloadLink: "/documents/NCDB_Brand_Guidelines.pdf"
     }
   ];
@@ -118,10 +118,6 @@ const Mediaroom = () => {
           <div className="bg-white rounded-xl md:rounded-3xl shadow-lg border border-blue-100 p-6 md:p-8 lg:p-12">
             <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 md:mb-8">
               <h2 className="text-2xl md:text-3xl font-bold text-blue-900">Latest News</h2>
-              <button className="text-blue-700 hover:text-blue-900 font-semibold flex items-center group mt-4 md:mt-0">
-                Subscribe to Newsletter
-                <ArrowRightIcon className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </button>
             </div>
 
             <div className="space-y-6 md:space-y-8">

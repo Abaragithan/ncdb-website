@@ -12,6 +12,7 @@ import {
     CpuChipIcon,
 } from '@heroicons/react/24/outline';
 import DepartmentLayout from '../layout/DepartmentLayout';
+import { Link } from 'react-router-dom';
 
 const TechnologyComponent = () => {
     const [activeTab, setActiveTab] = useState('overview');
@@ -208,20 +209,6 @@ const TechnologyComponent = () => {
                                 </div>
                             </div>
                         </div>
-
-                        <div className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-xl md:rounded-2xl p-6 md:p-8 lg:p-12 text-white">
-                            <div className="flex flex-col md:flex-row items-center justify-between">
-                                <div className="mb-6 md:mb-0 md:mr-8">
-                                    <h3 className="text-lg md:text-2xl font-bold mb-3 md:mb-4">Quality Testing Services</h3>
-                                    <p className="text-blue-100 text-base md:text-lg">
-                                        Our unit provides comprehensive quality testing for paddy, rice-based products, and other local food items to ensure market standards and certification compliance.
-                                    </p>
-                                </div>
-                                <button className="bg-white text-blue-700 hover:bg-blue-50 font-bold py-2 px-4 md:py-3 md:px-6 lg:py-4 lg:px-8 rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg">
-                                    Request Testing
-                                </button>
-                            </div>
-                        </div>
                     </div>
                 </div>
             )}
@@ -270,9 +257,9 @@ const TechnologyComponent = () => {
                                         Are you a student in Food Technology, Green Farming, or Automobile Technology? Apply for our 6-month internship program and gain practical experience while contributing to cooperative development and community empowerment.
                                     </p>
                                 </div>
-                                <button className="bg-white text-blue-700 hover:bg-blue-50 font-bold py-2 px-4 md:py-3 md:px-6 lg:py-4 lg:px-8 rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg">
+                                <Link to={"/careers"} className="bg-white text-blue-700 hover:bg-blue-50 font-bold py-2 px-4 md:py-3 md:px-6 lg:py-4 lg:px-8 rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg">
                                     Apply Now
-                                </button>
+                                </Link>
                             </div>
                         </div>
                     </div>

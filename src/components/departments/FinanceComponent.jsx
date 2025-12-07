@@ -28,7 +28,7 @@ const FinanceComponent = () => {
     };
 
     const metrics = [
-        { id: 1, metric: "₹500+ Cr", label: "Assets Under Management", icon: "💼" },
+        { id: 1, metric: "LKR500+ Cr", label: "Assets Under Management", icon: "💼" },
         { id: 2, metric: "1200+", label: "Societies Served", icon: "🏦" },
         { id: 3, metric: "99.8%", label: "Audit Compliance", icon: "✅" },
         { id: 4, metric: "25+", label: "Years of Excellence", icon: "⭐" }
@@ -242,18 +242,6 @@ const FinanceComponent = () => {
                         </p>
 
                         <ContactInfo contactInfo={contactInfo} />
-
-                        <div className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-xl md:rounded-2xl p-6 md:p-8 lg:p-12 text-white">
-                            <div className="text-center">
-                                <h3 className="text-lg md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6">Have a Specific Inquiry?</h3>
-                                <p className="text-blue-100 text-base md:text-lg lg:text-xl mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed">
-                                    Fill out our contact form and a member of our Finance team will get back to you within 24-48 hours with detailed assistance.
-                                </p>
-                                <button className="bg-white text-blue-700 hover:bg-blue-50 font-bold py-3 px-6 md:py-4 md:px-10 rounded-lg text-base md:text-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg">
-                                    Send a Message
-                                </button>
-                            </div>
-                        </div>
                     </div>
                 </div>
             )}

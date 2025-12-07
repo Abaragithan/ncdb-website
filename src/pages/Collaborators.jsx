@@ -24,7 +24,7 @@ const Collaborators = () => {
   };
 
   const metrics = [
-    { id: 1, metric: "₹500+ Cr", label: "Joint Funding Deployed", icon: "💰" },
+    { id: 1, metric: "LKR500+ Cr", label: "Joint Funding Deployed", icon: "💰" },
     { id: 2, metric: "200+", label: "Joint Projects", icon: "🤝" },
     { id: 3, metric: "15+", label: "Years of Partnership", icon: "📅" },
     { id: 4, metric: "100K+", label: "Beneficiaries Reached", icon: "👥" }
@@ -79,17 +79,17 @@ const Collaborators = () => {
     {
       title: "Financial Access",
       description: "Expanding loan accessibility and financial services to underserved communities through collaborative initiatives.",
-      icon: <ChartBarIcon className="h-8 w-8 text-blue-600" />
+      icon: <ChartBarIcon className="h-8 w-8 text-white" />
     },
     {
       title: "Economic Growth",
       description: "Supporting small enterprises and promoting sustainable business development through strategic partnerships.",
-      icon: <UserGroupIcon className="h-8 w-8 text-blue-600" />
+      icon: <UserGroupIcon className="h-8 w-8 text-white" />
     },
     {
       title: "Community Impact",
       description: "Building financial literacy and empowering local communities for long-term prosperity through collaborative programs.",
-      icon: <ShieldCheckIcon className="h-8 w-8 text-blue-600" />
+      icon: <ShieldCheckIcon className="h-8 w-8 text-white" />
     }
   ];
 
@@ -142,7 +142,7 @@ const Collaborators = () => {
               <InfoCards cards={partnershipImpact} columns={3} />
             </div>
 
-            <div className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-xl md:rounded-2xl p-6 md:p-8 lg:p-12 text-white">
+            <div className="bg-gradient-to-r from-blue-800 to-indigo-800 rounded-xl md:rounded-2xl p-6 md:p-8 lg:p-12 text-white">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
                 <div>
                   <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Success Stories</h3>
@@ -151,45 +151,13 @@ const Collaborators = () => {
                       "Joint microfinance program reaching 50,000+ rural entrepreneurs",
                       "Agricultural development project increasing crop yields by 40%",
                       "Women entrepreneurship initiative creating 2,000+ new businesses",
-                      "Youth employment program providing skills training to 5,000+ individuals"
+                      "Youth employment program providing skills training to 5,000+ individuals",
                     ].map((story, index) => (
                       <div key={index} className="flex items-start">
                         <CheckCircleIcon className="h-5 w-5 md:h-6 md:w-6 text-blue-300 mr-2 md:mr-3 flex-shrink-0" />
                         <span className="text-blue-100 text-sm md:text-base">{story}</span>
                       </div>
                     ))}
-                  </div>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl md:rounded-2xl p-6 md:p-8">
-                  <h4 className="text-lg md:text-xl font-bold mb-4 md:mb-6">Partnership Metrics</h4>
-                  <div className="space-y-3 md:space-y-4">
-                    <div>
-                      <div className="flex justify-between mb-1">
-                        <span className="text-sm md:text-base">Project Completion</span>
-                        <span className="font-bold">95%</span>
-                      </div>
-                      <div className="w-full bg-white/20 rounded-full h-2">
-                        <div className="bg-blue-300 h-2 rounded-full" style={{ width: '95%' }}></div>
-                      </div>
-                    </div>
-                    <div>
-                      <div className="flex justify-between mb-1">
-                        <span className="text-sm md:text-base">Beneficiary Satisfaction</span>
-                        <span className="font-bold">92%</span>
-                      </div>
-                      <div className="w-full bg-white/20 rounded-full h-2">
-                        <div className="bg-blue-300 h-2 rounded-full" style={{ width: '92%' }}></div>
-                      </div>
-                    </div>
-                    <div>
-                      <div className="flex justify-between mb-1">
-                        <span className="text-sm md:text-base">Funding Utilization</span>
-                        <span className="font-bold">98%</span>
-                      </div>
-                      <div className="w-full bg-white/20 rounded-full h-2">
-                        <div className="bg-blue-300 h-2 rounded-full" style={{ width: '98%' }}></div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -212,7 +180,7 @@ const Collaborators = () => {
                 <InfoCards cards={collaborationOpportunities} columns={1} />
               </div>
 
-              <div className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-xl md:rounded-2xl p-6 md:p-8 text-white">
+              <div className="bg-gradient-to-r from-blue-800 to-indigo-800 rounded-xl md:rounded-2xl p-6 md:p-8 text-white">
                 <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Become a Partner</h3>
                 <p className="text-blue-100 text-sm md:text-base mb-6">
                   Interested in collaborating with NCDB? We welcome partnerships with organizations that share our commitment to cooperative development and community empowerment.

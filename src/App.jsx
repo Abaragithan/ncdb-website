@@ -12,8 +12,8 @@ import Finance from "./pages/services/Finance";
 import Technology from "./pages/services/Technology";
 import Marketing from "./pages/services/Marketing";
 
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Navbar from "./components/home/Navbar";
+import Footer from "./components/home/Footer";
 import { useEffect } from "react";
 
 const App = () => {

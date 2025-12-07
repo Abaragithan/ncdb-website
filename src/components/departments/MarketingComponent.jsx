@@ -25,7 +25,7 @@ const MarketingComponent = () => {
     };
 
     const metrics = [
-        { id: 1, metric: "₹10M+", label: "Monthly Sales", icon: "💰" },
+        { id: 1, metric: "LKR10M+", label: "Monthly Sales", icon: "💰" },
         { id: 2, metric: "500+", label: "Retail Partners", icon: "🏪" },
         { id: 3, metric: "200+", label: "Societies Served", icon: "🤝" },
         { id: 4, metric: "25%", label: "Annual Growth", icon: "📈" }
@@ -48,7 +48,7 @@ const MarketingComponent = () => {
             heading: "Product Categories",
             items: ["Rice", "Flour", "Sugar", "Spices", "Tea", "Coconut Products"],
             description: "Our diverse product range includes agricultural commodities and value-added products sourced from cooperative societies.",
-            stats: { monthlySales: "₹2.5M", growth: "+12%" }
+            stats: { monthlySales: "LKR2.5M", growth: "+12%" }
         },
         societies: {
             heading: "District Distribution",
@@ -60,7 +60,7 @@ const MarketingComponent = () => {
             heading: "Trade Expositions",
             items: ["Annual Cooperative Expo", "Agricultural Fair", "Food Processing Expo"],
             description: "Major exhibitions showcasing cooperative products and connecting with buyers.",
-            stats: { visitors: "10,000+", deals: "₹5M+" }
+            stats: { visitors: "10,000+", deals: "LKR5M+" }
         }
     };
 
@@ -231,18 +231,6 @@ const MarketingComponent = () => {
                         </p>
 
                         <ContactInfo contactInfo={contactInfo} />
-
-                        <div className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-xl md:rounded-2xl p-6 md:p-8 lg:p-12 text-white">
-                            <div className="text-center">
-                                <h3 className="text-lg md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6">Interested in Collaboration?</h3>
-                                <p className="text-blue-100 text-base md:text-lg lg:text-xl mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed">
-                                    Whether you're a cooperative society looking to expand your market reach or a business interested in our products, our marketing team is ready to help you achieve your goals.
-                                </p>
-                                <button className="bg-white text-blue-700 hover:bg-blue-50 font-bold py-3 px-6 md:py-4 md:px-10 rounded-lg text-base md:text-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg">
-                                    Send a Message
-                                </button>
-                            </div>
-                        </div>
                     </div>
                 </div>
             )}

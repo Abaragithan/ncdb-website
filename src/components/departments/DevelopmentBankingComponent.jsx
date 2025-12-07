@@ -26,10 +26,10 @@ const DevelopmentBankingComponent = () => {
     };
 
     const metrics = [
-        { id: 1, metric: "₹50+ Cr", label: "Development Loans Disbursed", icon: "💰" },
+        { id: 1, metric: "LKR500+ Cr", label: "Development Loans Disbursed", icon: "💰" },
         { id: 2, metric: "5000+", label: "Beneficiaries Supported", icon: "👥" },
         { id: 3, metric: "200+", label: "Villages Developed", icon: "🏘️" },
-        { id: 4, metric: "₹10+ Cr", label: "Grants Distributed", icon: "🎯" }
+        { id: 4, metric: "LKR10+ Cr", label: "Grants Distributed", icon: "🎯" }
     ];
 
     const missionConfig = {
@@ -42,7 +42,6 @@ const DevelopmentBankingComponent = () => {
         { id: 'overview', label: 'Overview', shortLabel: 'Overview', icon: <BuildingLibraryIcon className="h-5 w-5" /> },
         { id: 'programs', label: 'Programs', shortLabel: 'Programs', icon: <DocumentTextIcon className="h-5 w-5" /> },
         { id: 'grants', label: 'Grants', shortLabel: 'Grants', icon: <BanknotesIcon className="h-5 w-5" /> },
-        { id: 'apply', label: 'Apply Now', shortLabel: 'Apply', icon: <DevicePhoneMobileIcon className="h-5 w-5" /> }
     ];
 
     const developmentPrograms = [
@@ -73,7 +72,7 @@ const DevelopmentBankingComponent = () => {
         {
             id: 1,
             name: "Agricultural Development Grant",
-            amount: "Up to ₹50,000",
+            amount: "Up to LKR50,000",
             eligibility: "Farmers & Agricultural Cooperatives",
             purpose: "Modern farming equipment, irrigation systems",
             icon: "🌱"
@@ -81,7 +80,7 @@ const DevelopmentBankingComponent = () => {
         {
             id: 2,
             name: "Small Business Start-up Grant",
-            amount: "Up to ₹1,00,000",
+            amount: "Up to LKR1,00,000",
             eligibility: "New Entrepreneurs",
             purpose: "Business establishment, initial inventory",
             icon: "🚀"
@@ -89,7 +88,7 @@ const DevelopmentBankingComponent = () => {
         {
             id: 3,
             name: "Women Entrepreneurship Grant",
-            amount: "Up to ₹75,000",
+            amount: "Up to LKR75,000",
             eligibility: "Women Entrepreneurs",
             purpose: "Women-led business ventures",
             icon: "👩‍💼"
@@ -240,7 +239,7 @@ const DevelopmentBankingComponent = () => {
                             ))}
                         </div>
 
-                        <div className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-xl md:rounded-2xl p-6 md:p-8 lg:p-12 text-white">
+                        <div className="bg-gradient-to-r from-blue-800 to-indigo-800 rounded-xl md:rounded-2xl p-6 md:p-8 lg:p-12 text-white">
                             <div className="flex flex-col md:flex-row items-center justify-between">
                                 <div className="mb-6 md:mb-0 md:mr-8">
                                     <h3 className="text-lg md:text-2xl font-bold mb-4">Need Help with Grant Application?</h3>
@@ -251,66 +250,6 @@ const DevelopmentBankingComponent = () => {
                                 <button className="bg-white text-blue-700 hover:bg-blue-50 font-bold py-3 px-6 md:py-4 md:px-8 rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg">
                                     Schedule Consultation
                                 </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )}
-
-            {activeTab === 'apply' && (
-                <div className="space-y-8 md:space-y-12">
-                    <div className="bg-white rounded-xl md:rounded-3xl shadow-lg border border-blue-100 p-6 md:p-8 lg:p-12">
-                        <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-6 md:mb-8 text-center">Apply for Development Services</h2>
-
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12">
-                            <div className="bg-gradient-to-br from-blue-50 to-white rounded-xl md:rounded-2xl p-6 md:p-8 text-center border border-blue-100 hover:shadow-xl transition-all duration-300">
-                                <div className="text-blue-600 mb-4 md:mb-6">
-                                    <DevicePhoneMobileIcon className="h-12 w-12 md:h-16 md:w-16 mx-auto" />
-                                </div>
-                                <h3 className="text-lg md:text-xl font-bold text-blue-900 mb-3 md:mb-4">Online Application</h3>
-                                <p className="text-blue-600 text-sm md:text-base mb-4 md:mb-6">Apply for loans, grants, or accounts through our secure online portal.</p>
-                                <button className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-3 px-6 md:py-4 md:px-8 rounded-lg transition-all duration-300 transform hover:scale-[1.02]">
-                                    Apply Online
-                                </button>
-                            </div>
-
-                            <div className="bg-gradient-to-br from-indigo-50 to-white rounded-xl md:rounded-2xl p-6 md:p-8 text-center border border-indigo-100 hover:shadow-xl transition-all duration-300">
-                                <div className="text-indigo-600 mb-4 md:mb-6">
-                                    <UserGroupIcon className="h-12 w-12 md:h-16 md:w-16 mx-auto" />
-                                </div>
-                                <h3 className="text-lg md:text-xl font-bold text-blue-900 mb-3 md:mb-4">Schedule Consultation</h3>
-                                <p className="text-blue-600 text-sm md:text-base mb-4 md:mb-6">Book a meeting with our development banking specialists for personalized guidance.</p>
-                                <button className="w-full bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-bold py-3 px-6 md:py-4 md:px-8 rounded-lg transition-all duration-300 transform hover:scale-[1.02]">
-                                    Book Appointment
-                                </button>
-                            </div>
-
-                            <div className="bg-gradient-to-br from-cyan-50 to-white rounded-xl md:rounded-2xl p-6 md:p-8 text-center border border-cyan-100 hover:shadow-xl transition-all duration-300">
-                                <div className="text-cyan-600 mb-4 md:mb-6">
-                                    <BuildingOfficeIcon className="h-12 w-12 md:h-16 md:w-16 mx-auto" />
-                                </div>
-                                <h3 className="text-lg md:text-xl font-bold text-blue-900 mb-3 md:mb-4">Branch Visit</h3>
-                                <p className="text-blue-600 text-sm md:text-base mb-4 md:mb-6">Visit your nearest NCDB branch for in-person assistance and application support.</p>
-                                <button className="w-full bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-700 hover:to-cyan-800 text-white font-bold py-3 px-6 md:py-4 md:px-8 rounded-lg transition-all duration-300 transform hover:scale-[1.02]">
-                                    Find Branch
-                                </button>
-                            </div>
-                        </div>
-
-                        <div className="bg-gradient-to-r from-blue-700 to-indigo-800 rounded-xl md:rounded-2xl p-6 md:p-8 lg:p-12 text-white">
-                            <div className="text-center">
-                                <h3 className="text-lg md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6">Need Help Choosing the Right Service?</h3>
-                                <p className="text-blue-100 text-base md:text-lg lg:text-xl mb-6 md:mb-8 max-w-2xl mx-auto">
-                                    Our development banking team is here to help you navigate through our services and find the perfect financial solution for your needs.
-                                </p>
-                                <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
-                                    <button className="bg-white text-blue-700 hover:bg-blue-50 font-bold py-3 px-6 md:py-4 md:px-10 rounded-lg text-base md:text-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg">
-                                        Call Us: {contactInfo.phone}
-                                    </button>
-                                    <button className="bg-blue-800 hover:bg-blue-900 text-white font-bold py-3 px-6 md:py-4 md:px-10 rounded-lg text-base md:text-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg">
-                                        Email: {contactInfo.email}
-                                    </button>
-                                </div>
                             </div>
                         </div>
                     </div>

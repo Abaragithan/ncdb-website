@@ -50,12 +50,6 @@ const ResearchComponent = () => {
             description: "Academic events and professional gatherings"
         },
         {
-            key: "collaborations",
-            name: "Collaborations & Partners",
-            icon: <UserGroupIcon className="h-8 w-8" />,
-            description: "Research partnerships and networks"
-        },
-        {
             key: "publications",
             name: "Publications",
             icon: <DocumentTextIcon className="h-8 w-8" />,
@@ -167,14 +161,14 @@ const ResearchComponent = () => {
 
                     <div>
                         <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-6 md:mb-8 text-center">Research Categories</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                             {categories.map((category) => (
                                 <div
                                     key={category.key}
                                     className="bg-gradient-to-br from-white to-blue-50 rounded-xl md:rounded-2xl shadow-lg border border-blue-100 p-6 md:p-8 hover:shadow-xl hover:border-blue-300 transition-all duration-300 cursor-pointer"
                                     onClick={() => setActiveTab(category.key)}
                                 >
-                                    <div className="flex items-center justify-center h-12 w-12 md:h-16 md:w-16 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 mb-4 md:mb-6">
+                                    <div className="flex items-center justify-center h-12 w-12 md:h-16 md:w-16 rounded-xl bg-gradient-to-br text-white from-blue-500 to-blue-700 mb-4 md:mb-6">
                                         {category.icon}
                                     </div>
                                     <h3 className="text-lg md:text-xl font-bold text-blue-900 mb-2 md:mb-3">{category.name}</h3>

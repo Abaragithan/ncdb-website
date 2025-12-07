@@ -13,7 +13,7 @@ import {
 import DepartmentLayout from '../components/layout/DepartmentLayout';
 import ContentTabs from '../components/common/ContentTabs';
 import InfoCards from '../components/common/InfoCards';
-import Board from '../components/Board';
+import Board from '../components/about/Board';
 
 const About = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -29,7 +29,7 @@ const About = () => {
 
   const metrics = [
     { id: 1, metric: "1200+", label: "Member Societies", icon: "🤝" },
-    { id: 2, metric: "₹500+ Cr", label: "Assets Managed", icon: "💰" },
+    { id: 2, metric: "LKR500+ Cr", label: "Assets Managed", icon: "💰" },
     { id: 3, metric: "50+", label: "Branches", icon: "🏢" },
     { id: 4, metric: "25+", label: "Years of Service", icon: "📅" }
   ];
@@ -51,22 +51,22 @@ const About = () => {
     {
       title: "Integrity",
       description: "Upholding the highest ethical standards in all our operations",
-      icon: <ShieldCheckIcon className="h-8 w-8 text-blue-600" />
+      icon: <ShieldCheckIcon className="h-8 w-8 text-white" />
     },
     {
       title: "Innovation",
       description: "Continuously evolving to meet changing community needs",
-      icon: <LightBulbIcon className="h-8 w-8 text-blue-600" />
+      icon: <LightBulbIcon className="h-8 w-8 text-white" />
     },
     {
       title: "Inclusion",
       description: "Ensuring financial access for all community members",
-      icon: <UserGroupIcon className="h-8 w-8 text-blue-600" />
+      icon: <UserGroupIcon className="h-8 w-8 text-white" />
     },
     {
       title: "Impact",
       description: "Creating measurable positive change in communities",
-      icon: <HeartIcon className="h-8 w-8 text-blue-600" />
+      icon: <HeartIcon className="h-8 w-8 text-white" />
     }
   ];
 
