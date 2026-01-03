@@ -2,14 +2,23 @@ import { ArrowRightIcon, BuildingOfficeIcon } from '@heroicons/react/24/outline'
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-const HeroSectionComponent = () => {
+// Hero content - This would come from WordPress API
+const HERO_CONTENT = {
+    slogan: "Where Cooperatives Grow Together",
+    badgeText: "Cooperative Development Bank",
+    ctaButton: "Explore",
+    ctaLink: "/about",
+    homeBio: "Providing customised cooperative solutions and institutional support to member societies for shared livelihoods and sustainable community development."
+};
+
+const HeroSectionComponent = ({ content = HERO_CONTENT }) => {
     return (
         <div className="relative overflow-hidden">
             {/* Background image with gradient overlay */}
             <div className="absolute inset-0">
                 <img
                     src="/images/slide1.jpg"
-                    alt="Empowering Cooperative Societies"
+                    alt="Cooperatives Grow Together"
                     className="w-full h-full object-cover"
                     loading="eager"
                 />
@@ -28,23 +37,25 @@ const HeroSectionComponent = () => {
                         >
                             <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
                                 <BuildingOfficeIcon className="h-5 w-5 text-white" />
-                                <span className="text-white text-sm font-medium">Cooperative Development Bank</span>
+                                <span className="text-white text-sm font-medium">
+                                    {content.badgeText}
+                                </span>
                             </div>
 
                             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 leading-tight">
-                                Empowering Cooperative Societies
+                                {content.slogan}
                             </h1>
 
                             <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-xl leading-relaxed">
-                                Providing comprehensive banking solutions and support to 1200+ member societies for sustainable community development.
+                                {content.homeBio}
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <Link
-                                    to="/about"
+                                    to={content.ctaLink}
                                     className="inline-flex items-center justify-center bg-white text-blue-700 hover:bg-blue-50 font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl"
                                 >
-                                    Explore
+                                    {content.ctaButton}
                                     <ArrowRightIcon className="h-5 w-5 ml-2" />
                                 </Link>
                             </div>

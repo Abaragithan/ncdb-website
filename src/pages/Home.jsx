@@ -9,43 +9,61 @@ import ServicesOverview from '../components/home/ServiceOverview';
 import CooperativeBenefits from '../components/home/CooperativeBenefits';
 import CTASection from '../components/home/CTASection';
 
-const Home = () => {
-  // Hard-coded news data
-  const newsPosts = [
-    {
-      id: 1,
-      title: "New Branch Opening in Colombo",
-      excerpt: "NCDB announces the opening of its 51st branch in Colombo, expanding our reach to serve more cooperative societies.",
-      date: "2024-01-15T10:30:00",
-      slug: "new-branch-opening-colombo"
-    },
-    {
-      id: 2,
-      title: "Annual Cooperative Summit 2024",
-      excerpt: "Join us for the largest gathering of cooperative societies in Sri Lanka. Registrations now open for all member societies.",
-      date: "2024-01-10T14:45:00",
-      slug: "annual-cooperative-summit-2024"
-    },
-    {
-      id: 3,
-      title: "Digital Banking Platform Launch",
-      excerpt: "Introducing our new digital banking platform for cooperative societies. Streamlined operations and better financial management.",
-      date: "2024-01-05T09:15:00",
-      slug: "digital-banking-platform-launch"
-    },
-    {
-      id: 4,
-      title: "Sustainable Agriculture Initiative",
-      excerpt: "New funding program launched for sustainable agriculture cooperatives. Special interest rates and technical support available.",
-      date: "2023-12-28T11:20:00",
-      slug: "sustainable-agriculture-initiative"
-    }
-  ];
+// Content configuration - This would be fetched from WordPress API
+const HOME_CONTENT = {
+  hero: {
+    slogan: "Where Cooperatives Grow Together",
+    title: "Empowering Cooperative Societies",
+    subtitle: "Providing comprehensive banking solutions and support to 1200+ member societies for sustainable community development.",
+    badgeText: "Cooperative Development Bank",
+    ctaButton: "Explore",
+    ctaLink: "/about",
+    homeBio: "Providing customised cooperative solutions and institutional support to member societies for shared livelihoods and sustainable community development."
+  },
+  newsSection: {
+    title: "News & Updates",
+    description: "Latest announcements and news from NCDB",
+    viewAllText: "View All Updates"
+  }
+};
 
+// This data would come from WordPress API
+const newsPosts = [
+  {
+    id: 1,
+    title: "New Branch Opening in Colombo",
+    excerpt: "NCDB announces the opening of its 51st branch in Colombo, expanding our reach to serve more cooperative societies.",
+    date: "2024-01-15T10:30:00",
+    slug: "new-branch-opening-colombo"
+  },
+  {
+    id: 2,
+    title: "Annual Cooperative Summit 2024",
+    excerpt: "Join us for the largest gathering of cooperative societies in Sri Lanka. Registrations now open for all member societies.",
+    date: "2024-01-10T14:45:00",
+    slug: "annual-cooperative-summit-2024"
+  },
+  {
+    id: 3,
+    title: "Digital Banking Platform Launch",
+    excerpt: "Introducing our new digital banking platform for cooperative societies. Streamlined operations and better financial management.",
+    date: "2024-01-05T09:15:00",
+    slug: "digital-banking-platform-launch"
+  },
+  {
+    id: 4,
+    title: "Sustainable Agriculture Initiative",
+    excerpt: "New funding program launched for sustainable agriculture cooperatives. Special interest rates and technical support available.",
+    date: "2023-12-28T11:20:00",
+    slug: "sustainable-agriculture-initiative"
+  }
+];
+
+const Home = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      {/* Hero Section */}
-      <HeroSectionComponent />
+      {/* Hero Section - Pass the hero content object */}
+      <HeroSectionComponent content={HOME_CONTENT.hero} />
 
       <StatsSection />
       <ServicesOverview />
@@ -58,9 +76,11 @@ const Home = () => {
               <NewspaperIcon className="h-5 w-5" />
               <span className="text-sm font-medium">Latest Updates</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">News & Updates</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">
+              {HOME_CONTENT.newsSection.title}
+            </h2>
             <p className="text-blue-600 text-base md:text-lg max-w-2xl mx-auto">
-              Latest announcements and news from NCDB
+              {HOME_CONTENT.newsSection.description}
             </p>
           </div>
 
@@ -103,7 +123,7 @@ const Home = () => {
               to="/mediaroom"
               className="inline-flex items-center bg-blue-600 text-white hover:bg-blue-700 font-bold py-3 px-6 rounded-lg text-base transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl"
             >
-              View All Updates
+              {HOME_CONTENT.newsSection.viewAllText}
               <ArrowRightIcon className="h-5 w-5 ml-2" />
             </Link>
           </div>
