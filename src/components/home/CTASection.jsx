@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 const CTA_CONTENT = {
     title: "Ready to Join the Cooperative Movement?",
     description: "Become a member society or partner with NCDB to drive sustainable development and economic growth in your community.",
-    primaryButton: "Contribute Now",
+    primaryButton: "Become a Shared Endeavour",
     secondaryButton: "Become a Collaborator",
-    primaryLink: "/contribute",
-    secondaryLink: "/collaborators",
+    primaryLink: "/sharedEndeavours",
+    secondaryLink: "/buildTogether",
     contactText: "Contact our membership team at",
     contactEmail: "membership@ncdb.coop"
 };
