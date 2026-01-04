@@ -30,7 +30,7 @@ const Navbar = () => {
           <ul className="hidden md:flex items-center space-x-1">
             <NavItemDesk name="Home" href="/" />
             <NavItemDesk name="About" href="/about" />
-            <NavItemDesk name="Contribute" href="/contribute" />
+            <NavItemDesk name="Build Together" href="/buildTogether" />
             <NavItemDesk
               name="Services"
               HoverContent={ServiceItems}
@@ -39,8 +39,8 @@ const Navbar = () => {
               onMouseLeave={() => setOpenDropdown(null)}
             />
             <NavItemDesk name="Media Room" href="/mediaroom" />
-            <NavItemDesk name="Collaborators" href="/collaborators" />
-            <NavItemDesk name="Careers" href="/careers" />
+            <NavItemDesk name="Shared Endeavours" href="/sharedEndeavours" />
+            <NavItemDesk name="Be Part of Our Collective" href="/careers" />
           </ul>
 
           {/* Mobile: menu button */}
@@ -72,7 +72,7 @@ const Navbar = () => {
             <div className="px-4 py-4 space-y-1">
               <MobileNavItem href="/" label="Home" onClick={() => setIsMenuOpen(false)} />
               <MobileNavItem href="/about" label="About" onClick={() => setIsMenuOpen(false)} />
-              <MobileNavItem href="/contribute" label="Contribute" onClick={() => setIsMenuOpen(false)} />
+              <MobileNavItem href="/buildTogether" label="Build Together" onClick={() => setIsMenuOpen(false)} />
 
               <div className="py-2">
                 <button
@@ -102,8 +102,8 @@ const Navbar = () => {
               </div>
 
               <MobileNavItem href="/mediaroom" label="Media Room" onClick={() => setIsMenuOpen(false)} />
-              <MobileNavItem href="/collaborators" label="Collaborators" onClick={() => setIsMenuOpen(false)} />
-              <MobileNavItem href="/careers" label="Careers" onClick={() => setIsMenuOpen(false)} />
+              <MobileNavItem href="/sharedEndeavours" label="Shared Endeavours" onClick={() => setIsMenuOpen(false)} />
+              <MobileNavItem href="/careers" label="Be Part of Our Collective" onClick={() => setIsMenuOpen(false)} />
               <MobileNavItem href="/contact" label="Contact Us" onClick={() => setIsMenuOpen(false)} />
             </div>
           </motion.div>

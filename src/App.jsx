@@ -1,9 +1,9 @@
 import { Link, Route, Routes, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import Mediaroom from "./pages/Mediaroom";
-import Contribute from "./pages/Contribute";
+import Contribute from "./pages/BuildTogether";
 import About from "./pages/About";
-import Collaborators from "./pages/Collaborators";
+import SharedEndeavours from "./pages/SharedEndeavours";
 import Career from "./pages/Career";
 
 import DevelopmentBanking from "./pages/services/DevelopmentBanking";
@@ -15,6 +15,7 @@ import Marketing from "./pages/services/Marketing";
 import Navbar from "./components/home/Navbar";
 import Footer from "./components/home/Footer";
 import { useEffect } from "react";
+
 
 const App = () => {
 
@@ -37,9 +38,9 @@ const App = () => {
           <Route element={<Error />} path="*"></Route>
           <Route element={<Home />} path="/"></Route>
           <Route element={<Mediaroom />} path="/mediaroom"></Route>
-          <Route element={<Contribute />} path="/contribute"></Route>
+          <Route element={<Contribute />} path="/buildTogether"></Route>
           <Route element={<About />} path="/about"></Route>
-          <Route element={<Collaborators />} path="/collaborators"></Route>
+          <Route element={<SharedEndeavours />} path="/sharedEndeavours"></Route>
           <Route element={<Career />} path="/careers"></Route>
 
           {/* Services */}
