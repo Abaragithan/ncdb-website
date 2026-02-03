@@ -21,7 +21,7 @@ const Navbar = () => {
               </div>
               <div className="hidden sm:block">
                 <h1 className='text-xl sm:text-2xl font-bold text-blue-900 tracking-tight'>NCDB</h1>
-                <p className="text-xs text-blue-600 -mt-1 font-medium">Nothern Cooperative Development Bank</p>
+                <p className="text-xs text-blue-600 -mt-1 font-medium">Northern Cooperative Development Bank</p>
               </div>
             </Link>
           </div>
@@ -32,15 +32,15 @@ const Navbar = () => {
             <NavItemDesk name="About" href="/about" />
             <NavItemDesk name="Build Together" href="/buildTogether" />
             <NavItemDesk
-              name="Services"
-              HoverContent={ServiceItems}
-              isOpen={openDropdown === 'services'}
-              onMouseEnter={() => setOpenDropdown('services')}
+              name="Core Functions"
+              HoverContent={CoreFunctionsDropdown}
+              isOpen={openDropdown === 'coreFunctions'}
+              onMouseEnter={() => setOpenDropdown('coreFunctions')}
               onMouseLeave={() => setOpenDropdown(null)}
             />
             <NavItemDesk name="Media Room" href="/mediaroom" />
             <NavItemDesk name="Shared Endeavours" href="/sharedEndeavours" />
-            <NavItemDesk name="Be Part of Our Collective" href="/careers" />
+            <NavItemDesk name="Careers" href="/careers" />
           </ul>
 
           {/* Mobile: menu button */}
@@ -79,7 +79,7 @@ const Navbar = () => {
                   onClick={() => setServiceMenu(!serviceMenu)}
                   className="flex items-center justify-between w-full py-3 px-4 text-blue-900 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-colors"
                 >
-                  <span className="font-semibold">Services</span>
+                  <span className="font-semibold">Core Functions</span>
                   <ChevronDownIcon className={`h-5 w-5 transition-transform ${serviceMenu ? 'rotate-180' : ''}`} />
                 </button>
 
@@ -91,11 +91,12 @@ const Navbar = () => {
                       exit={{ opacity: 0, height: 0 }}
                       className="pl-4 space-y-1 mt-1 border-l-2 border-blue-100 ml-3"
                     >
+                      <MobileNavItem href="/research" label="Research" onClick={() => setIsMenuOpen(false)} />
                       <MobileNavItem href="/developmentBanking" label="Development Banking" onClick={() => setIsMenuOpen(false)} />
-                      <MobileNavItem href="/research" label="Research & Development" onClick={() => setIsMenuOpen(false)} />
-                      <MobileNavItem href="/finance" label="Financial Services" onClick={() => setIsMenuOpen(false)} />
-                      <MobileNavItem href="/marketing" label="Marketing Support" onClick={() => setIsMenuOpen(false)} />
-                      <MobileNavItem href="/technology" label="Technical Support" onClick={() => setIsMenuOpen(false)} />
+                      <MobileNavItem href="/technology" label="Technology" onClick={() => setIsMenuOpen(false)} />
+                      <MobileNavItem href="/marketing" label="Marketing" onClick={() => setIsMenuOpen(false)} />
+                      <MobileNavItem href="/finance" label="Finance" onClick={() => setIsMenuOpen(false)} />
+                      <MobileNavItem href="/hr-admin" label="HR & Administration" onClick={() => setIsMenuOpen(false)} />
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -103,8 +104,8 @@ const Navbar = () => {
 
               <MobileNavItem href="/mediaroom" label="Media Room" onClick={() => setIsMenuOpen(false)} />
               <MobileNavItem href="/sharedEndeavours" label="Shared Endeavours" onClick={() => setIsMenuOpen(false)} />
-              <MobileNavItem href="/careers" label="Be Part of Our Collective" onClick={() => setIsMenuOpen(false)} />
-              <MobileNavItem href="/contact" label="Contact Us" onClick={() => setIsMenuOpen(false)} />
+              <MobileNavItem href="/careers" label="Careers" onClick={() => setIsMenuOpen(false)} />
+              <MobileNavItem href="/contact" label="Contact" onClick={() => setIsMenuOpen(false)} />
             </div>
           </motion.div>
         )}
@@ -124,30 +125,27 @@ const MobileNavItem = ({ href, label, onClick }) => (
   </Link>
 )
 
-// Service Items Component for Desktop Hover - Minimal Clean Layout
-const ServiceItems = () => {
-  const services = [
+// Core Functions Dropdown Component for Desktop
+const CoreFunctionsDropdown = () => {
+  const coreFunctions = [
+    { name: "Research", path: "/research" },
     { name: "Development Banking", path: "/developmentBanking" },
-    { name: "Research & Development", path: "/research" },
-    { name: "Financial Services", path: "/finance" },
-    { name: "Marketing Support", path: "/marketing" },
-    { name: "Technical Support", path: "/technology" }
+    { name: "Technology", path: "/technology" },
+    { name: "Marketing", path: "/marketing" },
+    { name: "Finance", path: "/finance" },
+    // { name: "HR & Administration", path: "/hr-admin" }
   ]
 
   return (
-    <div className="absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-blue-100">
-      <div className="px-4 py-3 border-b border-blue-100">
-        <h3 className="font-semibold text-blue-900">Services</h3>
-      </div>
-
+    <div className="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-blue-100">
       <div className="py-2">
-        {services.map((service) => (
+        {coreFunctions.map((func) => (
           <Link
-            key={service.path}
-            to={service.path}
-            className="block px-4 py-3 text-blue-800 hover:text-blue-700 hover:bg-blue-50 transition-colors duration-150"
+            key={func.path}
+            to={func.path}
+            className="block px-4 py-3 text-blue-800 hover:text-blue-700 hover:bg-blue-50 transition-colors duration-150 font-medium"
           >
-            {service.name}
+            {func.name}
           </Link>
         ))}
       </div>

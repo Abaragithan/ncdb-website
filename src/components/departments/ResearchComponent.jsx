@@ -1,121 +1,116 @@
 import { useState } from 'react';
 import {
     BeakerIcon,
-    CalendarIcon,
     UserGroupIcon,
     DocumentTextIcon,
-    ArrowRightIcon,
     AcademicCapIcon,
+    ArrowRightIcon,
+    CheckCircleIcon,
     ChartBarIcon,
-    CheckCircleIcon
+    BuildingOfficeIcon,
+    CalendarIcon
 } from '@heroicons/react/24/outline';
 import DepartmentLayout from '../layout/DepartmentLayout';
 
 const ResearchComponent = () => {
     const [activeTab, setActiveTab] = useState('overview');
 
+    // Content from document
     const heroConfig = {
-        title: "Advancing Cooperative",
-        description: "Pioneering research initiatives and knowledge sharing for sustainable cooperative development and community empowerment.",
+        title: "Understanding People's Lives to Strengthen",
+        description: "Grounded research supporting cooperative solutions rooted in real community needs and lived experiences.",
         imageSrc: "/images/research3.jpg",
         badgeIcon: AcademicCapIcon,
-        badgeText: "Research & Development",
-        highlightText: "Knowledge & Innovation"
+        badgeText: "Research Unit",
+        highlightText: "Cooperative Action",
+        slogan: "Understanding People's Lives to Strengthen Cooperative Action"
     };
 
     const missionConfig = {
-        mission: "To advance knowledge and innovation in cooperative banking and community development through rigorous academic research, collaborative projects, and knowledge dissemination.",
+        mission: "The Research Unit works closely with communities, cooperative societies, and national and international knowledge partners to ensure NCDB's interventions remain relevant and responsive. Its focus is on understanding people's livelihoods, daily realities, and collective challenges, while paying close attention to social, economic, and environmental changes shaping life.",
         icon: BeakerIcon,
-        title: "Our Research Mission"
+        title: "Our Research Focus"
     };
 
     const tabs = [
         { id: 'overview', label: 'Overview', shortLabel: 'Overview', icon: <ChartBarIcon className="h-5 w-5" /> },
-        { id: 'researches', label: 'Projects', shortLabel: 'Projects', icon: <BeakerIcon className="h-5 w-5" /> },
-        { id: 'events', label: 'Events', shortLabel: 'Events', icon: <CalendarIcon className="h-5 w-5" /> },
-        { id: 'publications', label: 'Publications', shortLabel: 'Publications', icon: <DocumentTextIcon className="h-5 w-5" /> }
+        { id: 'focus-areas', label: 'Focus Areas', shortLabel: 'Focus', icon: <BeakerIcon className="h-5 w-5" /> },
+        { id: 'projects', label: 'Research Projects', shortLabel: 'Projects', icon: <DocumentTextIcon className="h-5 w-5" /> },
+        { id: 'partnerships', label: 'Partnerships', shortLabel: 'Partners', icon: <UserGroupIcon className="h-5 w-5" /> }
     ];
 
-    const categories = [
+    // Focus Areas from document
+    const focusAreas = [
         {
-            key: "researches",
-            name: "Research Projects",
-            icon: <BeakerIcon className="h-8 w-8" />,
-            description: "Ongoing and completed research initiatives"
+            id: 1,
+            name: "Livelihoods and Community Studies",
+            description: "Understanding daily realities and collective challenges of communities",
+            icon: <UserGroupIcon className="h-8 w-8 text-blue-600" />
         },
         {
-            key: "events",
-            name: "Events & Conferences",
-            icon: <CalendarIcon className="h-8 w-8" />,
-            description: "Academic events and professional gatherings"
+            id: 2,
+            name: "Cooperative Performance & Governance Research",
+            description: "Research on effective governance structures and performance metrics",
+            icon: <BuildingOfficeIcon className="h-8 w-8 text-blue-600" />
         },
         {
-            key: "publications",
-            name: "Publications",
-            icon: <DocumentTextIcon className="h-8 w-8" />,
-            description: "Research papers and publications"
+            id: 3,
+            name: "Food Security & Rural Resilience",
+            description: "Studies on sustainable food systems and community resilience",
+            icon: <BeakerIcon className="h-8 w-8 text-blue-600" />
         },
+        {
+            id: 4,
+            name: "Social & Economic Impact Assessment",
+            description: "Measuring the impact of cooperative interventions",
+            icon: <ChartBarIcon className="h-8 w-8 text-blue-600" />
+        },
+        {
+            id: 5,
+            name: "Policy-Oriented & Action Research",
+            description: "Research informing policy and practical interventions",
+            icon: <DocumentTextIcon className="h-8 w-8 text-blue-600" />
+        },
+        {
+            id: 6,
+            name: "Knowledge Sharing & Learning",
+            description: "Disseminating research findings and building capacity",
+            icon: <AcademicCapIcon className="h-8 w-8 text-blue-600" />
+        }
     ];
 
     const researchProjects = [
         {
             id: 1,
-            title: "Sustainable Agriculture Practices",
-            description: "Research on organic farming techniques for cooperative societies",
+            title: "Livelihood Assessment in Northern Communities",
+            description: "Comprehensive study of income sources, challenges, and opportunities in cooperative societies",
             status: "Ongoing",
             duration: "2024-2025",
-            researchers: ["Dr. A. Perera", "Prof. S. Kumar"]
+            focusArea: "Livelihoods and Community Studies"
         },
         {
             id: 2,
-            title: "Financial Inclusion Strategies",
-            description: "Study on improving banking access in rural communities",
+            title: "Cooperative Governance Effectiveness",
+            description: "Analysis of governance models and their impact on cooperative performance",
             status: "Completed",
             duration: "2023-2024",
-            researchers: ["Dr. R. Silva", "Mr. K. Raj"]
+            focusArea: "Cooperative Performance & Governance"
         },
         {
             id: 3,
-            title: "Cooperative Governance Models",
-            description: "Analysis of effective governance structures for cooperatives",
+            title: "Climate Resilience in Agricultural Cooperatives",
+            description: "Research on adaptive strategies for climate change impacts",
             status: "Ongoing",
             duration: "2024-2026",
-            researchers: ["Prof. M. Fernando", "Dr. S. Pathirana"]
+            focusArea: "Food Security & Rural Resilience"
         }
     ];
 
-    const events = [
-        {
-            id: 1,
-            title: "Annual Cooperative Research Symposium",
-            date: "March 15-16, 2025",
-            location: "Colombo, Sri Lanka",
-            participants: "200+ researchers"
-        },
-        {
-            id: 2,
-            title: "Rural Development Conference",
-            date: "June 10-12, 2024",
-            location: "Jaffna, Sri Lanka",
-            participants: "150+ participants"
-        }
-    ];
-
-    const publications = [
-        {
-            id: 1,
-            title: "Impact of Cooperative Banking on Rural Economy",
-            authors: ["Perera, A.", "Silva, R."],
-            journal: "Journal of Cooperative Studies",
-            year: "2024"
-        },
-        {
-            id: 2,
-            title: "Sustainable Farming in Northern Sri Lanka",
-            authors: ["Kumar, S.", "Fernando, M."],
-            journal: "Agricultural Research Review",
-            year: "2023"
-        }
+    const partners = [
+        { id: 1, name: "University of Jaffna", type: "Academic", collaboration: "Joint research projects" },
+        { id: 2, name: "Cooperative Development Authority", type: "Government", collaboration: "Policy research" },
+        { id: 3, name: "International Cooperative Alliance", type: "International", collaboration: "Knowledge exchange" },
+        { id: 4, name: "Local Community Organizations", type: "Community", collaboration: "Participatory research" }
     ];
 
     return (
@@ -129,25 +124,25 @@ const ResearchComponent = () => {
             {activeTab === 'overview' && (
                 <div className="space-y-8 md:space-y-12">
                     <div className="bg-white rounded-xl md:rounded-3xl shadow-lg border border-blue-100 p-6 md:p-8 lg:p-12">
-                        <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-6 md:mb-8">Research & Development Overview</h2>
+                        <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-6 md:mb-8">Research Unit Overview</h2>
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
                             <div>
                                 <p className="text-blue-700 text-base md:text-lg mb-6 leading-relaxed">
-                                    The Research & Development department at NCDB is dedicated to advancing knowledge and innovation in cooperative banking and community development. Our research initiatives focus on creating sustainable solutions that empower cooperative societies and drive economic growth.
+                                    The Research Unit at NCDB is dedicated to understanding people's lives, livelihoods, and daily realities to strengthen cooperative action. Our work ensures that NCDB's interventions remain relevant, responsive, and grounded in real community needs.
                                 </p>
                                 <p className="text-blue-700 text-base md:text-lg leading-relaxed">
-                                    Through rigorous academic research, collaborative projects, and knowledge dissemination, we contribute to the evolution of cooperative models and practices that benefit communities across Northern Sri Lanka.
+                                    We collaborate closely with communities, cooperative societies, and knowledge partners at national and international levels, focusing on the social, economic, and environmental changes that shape life in cooperative communities.
                                 </p>
                             </div>
                             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl md:rounded-2xl p-6 md:p-8">
-                                <h3 className="text-xl md:text-2xl font-bold text-blue-900 mb-6">Research Focus Areas</h3>
+                                <h3 className="text-xl md:text-2xl font-bold text-blue-900 mb-6">Our Approach</h3>
                                 <ul className="space-y-4">
                                     {[
-                                        "Sustainable agricultural practices",
-                                        "Financial inclusion strategies",
-                                        "Cooperative governance models",
-                                        "Community economic development",
-                                        "Technology adoption in cooperatives"
+                                        "Community-centered research methodology",
+                                        "Participatory action research approaches",
+                                        "Mixed-methods data collection",
+                                        "Long-term longitudinal studies",
+                                        "Ethical and inclusive research practices"
                                     ].map((item, index) => (
                                         <li key={index} className="flex items-start">
                                             <CheckCircleIcon className="h-5 w-5 md:h-6 md:w-6 text-blue-600 mr-3 flex-shrink-0 mt-1" />
@@ -160,21 +155,54 @@ const ResearchComponent = () => {
                     </div>
 
                     <div>
-                        <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-6 md:mb-8 text-center">Research Categories</h2>
+                        <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-6 md:mb-8 text-center">Our Research Philosophy</h2>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                            <div className="bg-gradient-to-br from-blue-50 to-white rounded-xl md:rounded-2xl shadow-lg border border-blue-100 p-6 md:p-8 hover:shadow-xl hover:border-blue-300 transition-all duration-300">
+                                <div className="flex items-center justify-center h-12 w-12 md:h-16 md:w-16 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 mb-4 md:mb-6">
+                                    <UserGroupIcon className="h-6 w-6 md:h-8 md:w-8 text-white" />
+                                </div>
+                                <h3 className="text-lg md:text-xl font-bold text-blue-900 mb-3 md:mb-4">People-Centered</h3>
+                                <p className="text-blue-600 text-sm md:text-base">Research rooted in real community needs and lived experiences</p>
+                            </div>
+
+                            <div className="bg-gradient-to-br from-indigo-50 to-white rounded-xl md:rounded-2xl shadow-lg border border-indigo-100 p-6 md:p-8 hover:shadow-xl hover:border-indigo-300 transition-all duration-300">
+                                <div className="flex items-center justify-center h-12 w-12 md:h-16 md:w-16 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-700 mb-4 md:mb-6">
+                                    <BuildingOfficeIcon className="h-6 w-6 md:h-8 md:w-8 text-white" />
+                                </div>
+                                <h3 className="text-lg md:text-xl font-bold text-blue-900 mb-3 md:mb-4">Cooperative-Focused</h3>
+                                <p className="text-blue-600 text-sm md:text-base">Strengthening cooperative action through evidence-based insights</p>
+                            </div>
+
+                            <div className="bg-gradient-to-br from-cyan-50 to-white rounded-xl md:rounded-2xl shadow-lg border border-cyan-100 p-6 md:p-8 hover:shadow-xl hover:border-cyan-300 transition-all duration-300">
+                                <div className="flex items-center justify-center h-12 w-12 md:h-16 md:w-16 rounded-xl bg-gradient-to-br from-cyan-500 to-cyan-700 mb-4 md:mb-6">
+                                    <AcademicCapIcon className="h-6 w-6 md:h-8 md:w-8 text-white" />
+                                </div>
+                                <h3 className="text-lg md:text-xl font-bold text-blue-900 mb-3 md:mb-4">Solution-Oriented</h3>
+                                <p className="text-blue-600 text-sm md:text-base">Research that leads to practical, implementable solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {activeTab === 'focus-areas' && (
+                <div className="space-y-8 md:space-y-12">
+                    <div className="bg-white rounded-xl md:rounded-3xl shadow-lg border border-blue-100 p-6 md:p-8 lg:p-12">
+                        <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-6 md:mb-8">Research Focus Areas</h2>
+                        <p className="text-blue-600 text-base md:text-lg mb-8 md:mb-12 max-w-3xl">
+                            Our research is organized around six key focus areas that address the most pressing challenges and opportunities in cooperative development.
+                        </p>
+
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                            {categories.map((category) => (
-                                <div
-                                    key={category.key}
-                                    className="bg-gradient-to-br from-white to-blue-50 rounded-xl md:rounded-2xl shadow-lg border border-blue-100 p-6 md:p-8 hover:shadow-xl hover:border-blue-300 transition-all duration-300 cursor-pointer"
-                                    onClick={() => setActiveTab(category.key)}
-                                >
-                                    <div className="flex items-center justify-center h-12 w-12 md:h-16 md:w-16 rounded-xl bg-gradient-to-br text-white from-blue-500 to-blue-700 mb-4 md:mb-6">
-                                        {category.icon}
+                            {focusAreas.map((area) => (
+                                <div key={area.id} className="bg-gradient-to-br from-white to-blue-50 rounded-xl md:rounded-2xl shadow-lg border border-blue-100 p-6 md:p-8 hover:shadow-xl transition-all duration-300">
+                                    <div className="flex items-center justify-center h-12 w-12 md:h-16 md:w-16 rounded-xl bg-blue-50 mb-4 md:mb-6">
+                                        {area.icon}
                                     </div>
-                                    <h3 className="text-lg md:text-xl font-bold text-blue-900 mb-2 md:mb-3">{category.name}</h3>
-                                    <p className="text-blue-600 text-sm">{category.description}</p>
-                                    <button className="mt-3 md:mt-4 text-blue-700 hover:text-blue-900 font-semibold flex items-center group text-sm md:text-base">
-                                        Explore
+                                    <h3 className="text-lg md:text-xl font-bold text-blue-900 mb-3 md:mb-4">{area.name}</h3>
+                                    <p className="text-blue-600 text-sm md:text-base mb-4 md:mb-6">{area.description}</p>
+                                    <button className="text-blue-700 hover:text-blue-900 font-semibold flex items-center group text-sm md:text-base">
+                                        Explore Research
                                         <ArrowRightIcon className="h-4 w-4 md:h-5 md:w-5 ml-2 group-hover:translate-x-1 transition-transform" />
                                     </button>
                                 </div>
@@ -184,12 +212,12 @@ const ResearchComponent = () => {
                 </div>
             )}
 
-            {activeTab === 'researches' && (
+            {activeTab === 'projects' && (
                 <div className="space-y-8 md:space-y-12">
                     <div className="bg-white rounded-xl md:rounded-3xl shadow-lg border border-blue-100 p-6 md:p-8 lg:p-12">
-                        <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-6 md:mb-8">Research Projects</h2>
+                        <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-6 md:mb-8">Current Research Projects</h2>
                         <p className="text-blue-600 text-base md:text-lg mb-6 md:mb-8 max-w-3xl">
-                            Our ongoing and completed research initiatives focus on developing innovative solutions for cooperative development and community empowerment.
+                            Our ongoing research initiatives are designed to generate actionable insights for cooperative development.
                         </p>
 
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
@@ -204,17 +232,12 @@ const ResearchComponent = () => {
                                     <h3 className="text-lg md:text-xl font-bold text-blue-900 mb-3 md:mb-4">{project.title}</h3>
                                     <p className="text-blue-600 text-sm md:text-base mb-4 md:mb-6">{project.description}</p>
                                     <div className="mb-4 md:mb-6">
-                                        <h4 className="font-semibold text-blue-900 mb-1 md:mb-2 text-sm md:text-base">Researchers:</h4>
-                                        <div className="flex flex-wrap gap-1 md:gap-2">
-                                            {project.researchers.map((researcher, idx) => (
-                                                <span key={idx} className="px-2 py-0.5 md:px-3 md:py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">
-                                                    {researcher}
-                                                </span>
-                                            ))}
-                                        </div>
+                                        <span className="px-2 py-0.5 md:px-3 md:py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">
+                                            {project.focusArea}
+                                        </span>
                                     </div>
                                     <button className="text-blue-700 hover:text-blue-900 font-semibold flex items-center group text-sm md:text-base">
-                                        View Details
+                                        View Research Details
                                         <ArrowRightIcon className="h-4 w-4 md:h-5 md:w-5 ml-2 group-hover:translate-x-1 transition-transform" />
                                     </button>
                                 </div>
@@ -224,78 +247,39 @@ const ResearchComponent = () => {
                 </div>
             )}
 
-            {activeTab === 'events' && (
+            {activeTab === 'partnerships' && (
                 <div className="space-y-8 md:space-y-12">
                     <div className="bg-white rounded-xl md:rounded-3xl shadow-lg border border-blue-100 p-6 md:p-8 lg:p-12">
-                        <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-6 md:mb-8">Events & Conferences</h2>
+                        <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-6 md:mb-8">Knowledge Partnerships</h2>
                         <p className="text-blue-600 text-base md:text-lg mb-6 md:mb-8 max-w-3xl">
-                            Join us in our knowledge-sharing events and professional gatherings that bring together experts and practitioners in cooperative development.
+                            We collaborate with a diverse network of knowledge partners to ensure our research is robust, relevant, and impactful.
                         </p>
 
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
-                            {events.map((event) => (
-                                <div key={event.id} className="bg-gradient-to-br from-white to-blue-50 rounded-xl md:rounded-2xl shadow-lg border border-blue-100 p-6 md:p-8 hover:shadow-xl transition-all duration-300">
-                                    <div className="flex items-center space-x-3 md:space-x-4 mb-4 md:mb-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                            {partners.map((partner) => (
+                                <div key={partner.id} className="bg-gradient-to-br from-white to-blue-50 rounded-xl md:rounded-2xl shadow-lg border border-blue-100 p-6 md:p-8 hover:shadow-xl transition-all duration-300">
+                                    <div className="flex items-center space-x-4 md:space-x-6 mb-4 md:mb-6">
                                         <div className="flex-shrink-0">
-                                            <CalendarIcon className="h-6 w-6 md:h-8 md:w-8 text-blue-600" />
+                                            <div className="h-12 w-12 md:h-16 md:w-16 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-lg md:text-xl">
+                                                {partner.name.charAt(0)}
+                                            </div>
                                         </div>
                                         <div>
-                                            <h3 className="text-lg md:text-xl font-bold text-blue-900">{event.title}</h3>
+                                            <h3 className="text-lg md:text-xl font-bold text-blue-900">{partner.name}</h3>
                                             <div className="flex items-center text-blue-600 text-xs md:text-sm mt-1">
-                                                <span>{event.date} • {event.location}</span>
+                                                <span className="px-2 py-0.5 bg-blue-100 rounded-full">{partner.type}</span>
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="flex items-center text-blue-500 text-xs md:text-sm mb-4 md:mb-6">
-                                        <UserGroupIcon className="h-3 w-3 md:h-4 md:w-4 mr-2" />
-                                        <span>{event.participants}</span>
-                                    </div>
-                                    <button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-medium py-2 px-6 md:py-3 md:px-8 rounded-lg transition-all duration-300 transform hover:scale-[1.02] text-sm md:text-base">
-                                        Register Now
+                                    <p className="text-blue-700 text-sm md:text-base mb-4 md:mb-6">
+                                        <span className="font-semibold">Collaboration:</span> {partner.collaboration}
+                                    </p>
+                                    <button className="text-blue-700 hover:text-blue-900 font-semibold flex items-center group text-sm md:text-base">
+                                        View Partnership Details
+                                        <ArrowRightIcon className="h-4 w-4 md:h-5 md:w-5 ml-2 group-hover:translate-x-1 transition-transform" />
                                     </button>
                                 </div>
                             ))}
-                        </div>
-                    </div>
-                </div>
-            )}
-
-            {activeTab === 'publications' && (
-                <div className="space-y-8 md:space-y-12">
-                    <div className="bg-white rounded-xl md:rounded-3xl shadow-lg border border-blue-100 p-6 md:p-8 lg:p-12">
-                        <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-6 md:mb-8">Research Publications</h2>
-                        <p className="text-blue-600 text-base md:text-lg mb-6 md:mb-8 max-w-3xl">
-                            Access our published research papers, articles, and reports contributing to the field of cooperative development.
-                        </p>
-
-                        <div className="bg-gradient-to-br from-white to-blue-50 rounded-xl md:rounded-2xl shadow-lg border border-blue-100 overflow-hidden mb-8 md:mb-12">
-                            <div className="divide-y divide-blue-100">
-                                {publications.map((publication) => (
-                                    <div key={publication.id} className="p-4 md:p-6 lg:p-8 hover:bg-blue-50/50 transition-colors duration-200">
-                                        <div className="flex items-start mb-3 md:mb-4">
-                                            <div className="flex-shrink-0">
-                                                <DocumentTextIcon className="h-6 w-6 md:h-8 md:w-8 text-blue-600" />
-                                            </div>
-                                            <div className="ml-4 md:ml-6">
-                                                <h3 className="text-base md:text-lg font-medium text-blue-900">{publication.title}</h3>
-                                                <div className="flex flex-col md:flex-row md:items-center text-blue-500 text-xs md:text-sm mt-1 md:mt-2">
-                                                    <span className="mr-0 md:mr-4 mb-1 md:mb-0">Authors: {publication.authors.join(', ')}</span>
-                                                    <span>Journal: {publication.journal}</span>
-                                                </div>
-                                                <div className="mt-2 md:mt-3">
-                                                    <span className="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-0.5 md:px-3 md:py-1 rounded-full">
-                                                        {publication.year}
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <button className="text-blue-700 hover:text-blue-900 font-semibold flex items-center group text-sm md:text-base">
-                                            Download Paper
-                                            <ArrowRightIcon className="h-4 w-4 md:h-5 md:w-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                                        </button>
-                                    </div>
-                                ))}
-                            </div>
                         </div>
                     </div>
                 </div>
